@@ -35,7 +35,9 @@ class Coin98Client extends EventEmitter {
     }
 
     this.client = io(SERVER, {
-      transports: ['websocket']
+      transports: ['websocket'],
+      timeout: 600000,
+      closeOnBeforeunload: false,
     })
 
     this.client.on('sdk_connect', (ev: EventType) => {
